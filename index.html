@@ -1,74 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito"/>
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Hacked by Roman NP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    /* ===== RESET ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", monospace;
+    }
+
+    body {
+        background: black;
+        color: #00ff00;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* ===== MATRIX BACKGROUND ===== */
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    /* ===== CENTER CONTENT ===== */
+    .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-shadow: 0 0 10px #00ff00;
+        animation: flicker 2s infinite;
+    }
+
+    h2 {
+        margin-top: 15px;
+        font-size: 1.5rem;
+        opacity: 0.9;
+    }
+
+    p {
+        margin-top: 25px;
+        max-width: 600px;
+        line-height: 1.6;
+        opacity: 0.8;
+    }
+
+    .line {
+        margin-top: 30px;
+        width: 80%;
+        height: 2px;
+        background: #00ff00;
+        box-shadow: 0 0 10px #00ff00;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.9rem;
+        opacity: 0.6;
+    }
+
+    @keyframes flicker {
+        0% { opacity: 1; }
+        50% { opacity: 0.6; }
+        100% { opacity: 1; }
+    }
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="navbar">
-            <div class="nav-items flex-flow-row">
-                <div class="nav-item"><a><img src="images/logo.png" height="40rem" width="100rem"></a></div>
-                <div class="nav-item"><a href="listing-page/listingpage.html">Categories</a></div>
-                <div class="nav-item"><a href="listing-page/listingpage.html">Clothing</a></div>
-                <div class="nav-item"><a href="listing-page/listingpage.html">Brands</a></div>
-                <div class="nav-item"><a href="listing-page/listingpage.html">Beauty</a></div>
-                <div class="search-container">
-                    <form>
-                      <button type="submit"><i class="fa fa-search"></i></button>
-                      <input type="text" placeholder="Search.." name="search">
-                    </form>
-                  </div>
-                  <div class="nav-items-right flex-flow-row">
-                    <div class="nav-item"><a href="signup-login/signup.html"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></div>
-                    <div class="nav-item"><a href="wishlist/wishlist.html"><i class="fa fa-heart fa-lg" aria-hidden="true"></i></a></div>
-                    <div class="nav-item"><a href="cart/cart.html"><i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i></a></div>                     
-                  </div>
-            </div>
-        </div>
-    </header>
+<canvas id="matrix"></canvas>
 
-    <section>
-        <div class="main-container">
-      
-            <img class="img-container" src="images/main.jpg">
-        </div>
+<div class="container">
+    <h1>HACKED BY ROMAN NP</h1>
+    <h2>Ethical Hacking • Cyber Security • Learning Mode</h2>
 
-        <div class="card-container">
-            <div class="flex-flow-row card-items">
-                <div class="card card-component">
-                    <img class="card-img" src="images/women.jpg">
-                    <div class="card-details flex-flow-column">
-                        <h2><a>Apparel</a></h2> 
-                    </div>
-                </div>
+    <div class="line"></div>
 
-            <div class="card card-component">
-                <img class="card-img" src="images/sale.jpg">
-                <span class="bestseller-badge"><h3>Flat 40% off</h3></span>
-                <div class="card-details flex-flow-column">
-                    <h2><a>Flash Sale</a></h2>
-                </div>  
-            </div>
+    <p>
+        This page is a <b>visual hacking theme</b> created for educational,
+        portfolio, and design practice purposes only.<br>
+        <br>
+        Knowledge is power. Use it ethically.
+    </p>
 
-            <div class="card card-component">
-                <img class="card-img" src="images/beauty.jpg">
-                <div class="card-details flex-flow-column">
-                    <h2><a>Beauty</a></h2>
-                </div>  
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <h3>Made with 💜 by Swastika</h3>
+    <footer>
+        © Roman NP | Cyber Security Learner
     </footer>
+</div>
+
+<script>
+    /* ===== MATRIX EFFECT ===== */
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+
+    const drops = [];
+    for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+    }
+
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#00ff00";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters.charAt(Math.floor(Math.random() * letters.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    setInterval(drawMatrix, 33);
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+</script>
 
 </body>
 </html>
